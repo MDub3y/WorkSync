@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+    --color-amber-700: #ff4f00;
+    --color-slate-100: #ebe9df
+}
+
+body {
+    background: #fffdf9;
+    font-family: var(--zds-typography-base, "Inter", Helvetica, arial, sans-serif);
+    font-style: normal;
+    font-weight: normal;
+}
