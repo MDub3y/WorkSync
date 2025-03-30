@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-key */
 "use client"
 import { Appbar } from "@/components/Appbar";
@@ -74,7 +76,11 @@ export default function Dashboard() {
                 </div>
             </div>
         </div>
-        {loading ? "Loading..." : <div className="flex justify-center"> <ZapTable zaps={zaps} /> </div>}
+        {loading ? 
+        <div className="pt-8 text-xl flex justify-center">Loading...</div> : 
+        <div className="flex justify-center">
+            <ZapTable zaps={zaps} />
+        </div>}
     </div>
 }
 
@@ -89,7 +95,7 @@ function ZapTable({ zaps }: {zaps: Zap[]}) {
                 <div className="flex-1">Webhook URL</div>
                 <div className="flex-1">Go</div>
         </div>
-        {zaps.map(z => <div className="flex border-b border-t py-4">
+        {zaps?.map(z => <div className="flex border-b border-t py-4">
             <div className="flex-1 flex"><img src={z.trigger.type.image} className="w-[30px] h-[30px]" /> {z.actions.map(x => <img src={x.type.image} className="w-[30px] h-[30px]" />)}</div>
             <div className="flex-1">{z.id}</div>
             <div className="flex-1">Nov 13, 2023</div>
